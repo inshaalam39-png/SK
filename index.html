@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For SK 💌</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.page{display:none;text-align:center;padding:20px;max-width:420px;}
+.active{display:block;}
+
+.envelope{
+    width:230px;height:160px;background:#fff;
+    border-radius:12px;cursor:pointer;
+    position:relative;margin:auto;
+    animation:float 2s infinite ease-in-out;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+.envelope:before{
+    content:"";
+    position:absolute;top:0;left:0;
+    border-left:115px solid transparent;
+    border-right:115px solid transparent;
+    border-top:80px solid #ff6f91;
+}
+.envelope p{position:absolute;bottom:15px;width:100%;font-size:18px;}
+
+.letter{
+    background:#fff;border-radius:15px;
+    padding:22px;font-size:15px;
+    line-height:1.7;
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+    animation:fade 1s;
+}
+@keyframes fade{from{opacity:0;transform:scale(.95);}to{opacity:1;}}
+
+button{
+    margin-top:20px;
+    padding:11px 25px;
+    border:none;border-radius:25px;
+    background:#ff6f91;color:#fff;
+    font-size:16px;cursor:pointer;
+}
+
+.box{
+    width:160px;height:160px;
+    background:#fff;border-radius:25px;
+    margin:40px auto;
+    display:flex;justify-content:center;align-items:center;
+    font-size:20px;cursor:pointer;
+    animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+    <div class="envelope" onclick="go(2)">
+        <p>Tap to open 💌</p>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<div class="letter">
+<b>SK 🤍</b><br><br>
+
+You are truly a wonderful person ✨  
+Kind at heart, strong in silence, and full of dreams 🌙  
+
+I know life isn’t always easy, but trust me —  
+your future holds beautiful things 🌟  
+
+Never lose hope.  
+Whenever something bothers you, you can tell me 🤍  
+I know you’re an introvert, but with me… you don’t have to hide.  
+
+If it ever hurts, you can cry in front of me 😌  
+I’ll listen quietly and stay.  
+
+Please never feel alone.  
+I am here — always with you 🤍✨
+</div>
+<button onclick="go(3)">Next ➜</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+<h3>🎵 A song for you</h3>
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/search/firta%20by%20SK"
+width="100%" height="80" frameborder="0"
+allow="autoplay; clipboard-write; encrypted-media;">
+</iframe>
+<button onclick="go(4)">Next ➜</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="p4">
+<div class="box" onclick="showQ()">🎁 Tap Me</div>
+
+<div id="q" style="display:none;">
+<p>
+Do you like being with me? 🤍<br>
+Do you enjoy talking to me? 💬<br>
+Do you like my presence? ✨
+</p>
+<button onclick="yes()">Yes 💖</button>
+<button onclick="no()">No 🙂</button>
+</div>
+</div>
+
+<script>
+function go(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('p'+n).classList.add('active');
+}
+function showQ(){document.getElementById('q').style.display='block';}
+function yes(){alert("That means a lot 💖\nI’m really happy to be here with you 🤍");}
+function no(){alert("That’s okay 🙂\nThank you for being honest 🤍");}
+</script>
+
+</body>
+</html>
